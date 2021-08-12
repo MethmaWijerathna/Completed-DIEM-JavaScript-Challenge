@@ -18,13 +18,12 @@ window.onload = function(){
     let skillsOutput = document.querySelector("#skillsOutput");
     
     // Setting Initial Values
-    nameOutput.innerHTML = "Hello there! Please enter your name?";
-    ageOutput.innerHTML = "Would you mind entering your birthday?";
+    name.value = "";
+    date.value = "";
     backGround.classList.remove("bg-dark", "text-white"); // Initially light mode
     backGround.classList.add("bg-light", "text-black");
     light.checked = true;
     dark.checked = false;
-    themeOutput.innerHTML = "You chose Light Mode!";
     
 
 
@@ -53,7 +52,9 @@ window.onload = function(){
      * The function is activated when the user moves the cursor to the name input box and focuses on it.
      */
     function nameFocus() {
-        nameOutput.innerHTML = "Hello there! What's your name?";
+        if (name.value === '') {
+            nameOutput.innerHTML = "Hello there! What's your name?";
+        }
     }
 
 
@@ -94,7 +95,9 @@ window.onload = function(){
      * The function is activated when the user moves the cursor to the date input box and focuses on it.
      */
     function dateFocus(){
-        ageOutput.innerHTML = "Lemme guess, your age is...";
+        if (date.value === "") {
+            ageOutput.innerHTML = "Lemme guess, your age is...";
+        }
     }
 
     /**
@@ -178,10 +181,12 @@ window.onload = function(){
      * @param {Button which is in focus} btn 
      */
     function buttonFocus(btn){
-        if (btn.parentNode === skillsOutput){
-            btn.classList.remove("btn-success");
-            btn.classList.add("btn-danger");
-        }
+        // if (btn.parentNode === skillsOutput){
+        //     btn.classList.remove("btn-success");
+        //     btn.classList.add("btn-danger");
+        // }
+        btn.classList.remove("btn-success");
+        btn.classList.add("btn-danger");
     }
 
     /**
@@ -189,10 +194,12 @@ window.onload = function(){
      * @param {Button which is removed from focus} btn 
      */
     function buttonBlur(btn){
-        if (btn.parentNode === skillsOutput){
-            btn.classList.remove("btn-danger");
-            btn.classList.add("btn-success");
-        }
+        // if (btn.parentNode === skillsOutput){
+        //     btn.classList.remove("btn-danger");
+        //     btn.classList.add("btn-success");
+        // }
+        btn.classList.remove("btn-danger");
+        btn.classList.add("btn-success");
     }
 
     /**
